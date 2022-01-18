@@ -168,7 +168,7 @@ const storyUpdater = (takePos) => {
         }
 
         if (storyState == 3 && tileMap[194] == 0 && tileMap[195] == 0 && tileMap[196] == 0) {
-            if (nextPos == 294 || nextPos == 295 || nextPos == 296) {
+            if (nextPos == 294 || nextPos == 295 || nextPos == 296 && storyState !=4) {
                 txtMsgs.innerHTML = ""
                 storyState++;
                 console.log(storyState)
