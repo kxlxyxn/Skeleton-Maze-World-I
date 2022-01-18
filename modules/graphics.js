@@ -15,7 +15,7 @@ const spriteBank = [
     "url(img/stone_wall.jpg)",
     "url(img/portal.gif)",
     "url(img/orc.gif)",
-    "url(img/mage.gif)", //12, index 11
+    "url(img/mage.gif)",
     "url(img/envelope.png)"
 ]
 
@@ -50,15 +50,15 @@ const tileGenerator = () => {
 
         if (tileMap[i] == 1) {
             divStyle.style.backgroundImage = spriteBank[1];
-        }    
+        }
 
         if (tileMap[i] == 9) {
             divStyle.style.backgroundImage = spriteBank[8];
-        }    
+        }
         if (tileMap[i] == 2) {
             divStyle.style.backgroundImage = spriteBank[11];
             tileMap[i] = 9;
-        }   
+        }
 
         if (tileMap[i] == 7) {
             divStyle.style.backgroundImage = spriteBank[9];
@@ -68,7 +68,7 @@ const tileGenerator = () => {
         if (tileMap[i] == 5) {
             divStyle.style.backgroundImage = spriteBank[4];
         }
-    
+
         if (tileMap[i] == 4) {
             divStyle.style.backgroundImage = spriteBank[5];
             tileMap[i] = 9;
@@ -77,7 +77,7 @@ const tileGenerator = () => {
         if (tileMap[i] == 6) {
             divStyle.style.backgroundImage = spriteBank[12];
         }
-    
+
         if (tileMap[i] == 3) {
             divStyle.style.backgroundImage = spriteBank[6];
             tileMap[i] = 9;
@@ -96,36 +96,30 @@ const tileGenerator = () => {
 
 }
 
-
-const mobRealign = () => {
+const tileSwapper = () => {
+    var divStyle;
     tileMap[40] = 0;
-    var divStyle = document.getElementById(40);
+    divStyle = document.getElementById(40);
     divStyle.style.backgroundImage = "none";
 
-    tileMap[224] = 0;
-    tileMap[244] = 0;
-    tileMap[74] = 0;
-    tileMap[281] = 0;
-    divStyle = document.getElementById(224);
-    divStyle.style.backgroundImage = "none";
-    divStyle = document.getElementById(244);
-    divStyle.style.backgroundImage = "none";
-    divStyle = document.getElementById(74);
-    divStyle.style.backgroundImage = "none";
-    divStyle = document.getElementById(281);
-    divStyle.style.backgroundImage = "none";
-    tileMap[107] = 9;
-    tileMap[108] = 9;
-    tileMap[343] = 9;
-    tileMap[344] = 9;
-    divStyle = document.getElementById(107);
-    divStyle.style.backgroundImage = spriteBank[10];
-    divStyle = document.getElementById(108);
-    divStyle.style.backgroundImage = spriteBank[6];
-    divStyle = document.getElementById(343);
-    divStyle.style.backgroundImage = spriteBank[11];
-    divStyle = document.getElementById(344);
-    divStyle.style.backgroundImage = spriteBank[11];
+    let mobCurr = [281, 74, 224, 244]
+    let mobNext = [107, 108, 343, 344]
+    let mobSprite = [10, 6, 11, 11]
+
+    for (let i = 0; i < mobCurr.length; i++) {
+        tileMap[mobCurr[i]] = 0;
+        tileMap[mobNext[i]] = 9;
+        divStyle = document.getElementById(mobCurr[i])
+        divStyle.style.backgroundImage = "none";
+        divStyle = document.getElementById(mobNext[i])
+        divStyle.style.backgroundImage = spriteBank[mobSprite[i]]
+    }
 }
 
-export {spriteBank, tileMap, tileGenerator, mobRealign, txtMsgs}
+export {
+    spriteBank,
+    tileMap,
+    tileGenerator,
+    tileSwapper,
+    txtMsgs
+}

@@ -3,7 +3,7 @@ import {
     tileMap,
     tileGenerator,
     txtMsgs,
-    mobRealign
+    tileSwapper
 } from "./graphics.js"
 import {
     initializeAudio
@@ -87,7 +87,6 @@ const portalJumper = (nextStep) => {
     divStyle = document.getElementById(currPos)
     divStyle.style.backgroundImage = spriteBank[spriteIndex]
     divStyle = document.getElementById(endIndex)
-    divStyle.style.backgroundSize = "100%"
     divStyle.style.backgroundImage = spriteBank[9];
     divStyle.style.transform = ("rotate(270deg)")
 }
@@ -222,7 +221,7 @@ const dialogue = (prompt) => {
             break;
         case 5:
             txtMsgs.innerHTML = "FUGITIVES: WE'RE GOING BACK TO PRISON, BUT NOT FOR LONG! MUHAHAHAHA"
-            mobRealign()
+            tileSwapper()
             break;
         case 6:
             txtMsgs.innerHTML = "GIRL: WE'RE FINALLY REUNITED! THANK YOU, SKELETON!"
