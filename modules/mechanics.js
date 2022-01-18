@@ -109,7 +109,7 @@ const prisonLockdown = (presentIndex, futureIndex) => {
 const gameEnder = () => {
     var el = document.getElementById('grid');
     el.remove();
-    txtMsgs.innerHTML = "CONGRATULATION! YOU ESCAPED AND FINISHED THE GAME! YOU'RE ONE HELL OF A SKELETON! PRESS 'ENTER' TO RELOAD THE PAGE";
+    txtMsgs.innerHTML = "CONGRATULATIONS! YOU ESCAPED AND FINISHED THE GAME! YOU'RE ONE HELL OF A SKELETON! PRESS 'ENTER' TO RELOAD THE PAGE";
     document.addEventListener('keydown', e => {
         if (e.key == 'Enter') {
             location.reload();
@@ -165,7 +165,7 @@ console.log(storyState)}}
 if (nextPos == 282 && storyState == 0) {
 txtMsgs.innerHTML = "WHAT MADE THE ORC CRY?"}
 if (nextPos == 282 && storyState == 1) {
-txtMsgs.innerHTML = "GIVE ORC LOVE LETTER? Y/N";
+txtMsgs.innerHTML = "GIVE LOVE LETTER TO THE ORC? Y/N";
 advanceStory(storyState)}    
 
                            // escaped prisoners //
