@@ -22,7 +22,6 @@ body {
     grid-template-rows: repeat(20, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    /* border: 1px solid black; */
     }
 
 #txtMsgs {
@@ -45,15 +44,3 @@ body {
     white-space: nowrap;
     overflow: hidden;
     }
-
-    /* .portal {
-        position: relative;
-        height: 32px;
-        width: 32x;
-        background-image: url("portal.gif");
-        text-align: center;
-        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.25);
-        text-indent: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        } */
