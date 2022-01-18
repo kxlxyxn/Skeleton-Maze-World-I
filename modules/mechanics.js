@@ -32,20 +32,23 @@ const updateSprite = (currentIndex, newIndex, URL) => {
 
 const controlPanel = () => {
     document.addEventListener('keydown', e => {
-        if (e.key == 'ArrowDown' || e.key == 's' || e.key == 'S') {
-            updateSprite(currPos, 20, 0)
-        } else if (e.key == 'ArrowUp' || e.key == 'w' || e.key == 'W') {
-            updateSprite(currPos, -20, 1)
-        } else if (e.key == 'ArrowLeft' || e.key == 'a' || e.key == 'A') {
-            updateSprite(currPos, -1, 2)
-        } else if (e.key == 'ArrowRight' || e.key == 'd' || e.key == 'D') {
-            updateSprite(currPos, 1, 3)
-        } else if (e.key == 'Enter') {
+        if (e.key == 'Enter') {
             if (gameState == 0) {
-                gameState = 1;
+                gameState++;
                 txtMsgs.innerHTML = "MR. SKELETON IS LOST!"
                 tileGenerator();
                 initializeAudio();
+            }
+        }
+        if (gameState == 1) {
+            if (e.key == 'ArrowDown' || e.key == 's' || e.key == 'S') {
+                updateSprite(currPos, 20, 0)
+            } else if (e.key == 'ArrowUp' || e.key == 'w' || e.key == 'W') {
+                updateSprite(currPos, -20, 1)
+            } else if (e.key == 'ArrowLeft' || e.key == 'a' || e.key == 'A') {
+                updateSprite(currPos, -1, 2)
+            } else if (e.key == 'ArrowRight' || e.key == 'd' || e.key == 'D') {
+                updateSprite(currPos, 1, 3)
             }
         }
     })
@@ -91,8 +94,8 @@ const portalJumper = (nextStep) => {
 
 // LOSING THE GAME //
 
-const hookerDeath = () => {
-    alert('GAME OVER! You were killed by the hooker.')
+const girlDeath = () => {
+    alert('GAME OVER! You were killed by the girl.')
     var divStyle = document.getElementById(74)
     divStyle.style.backgroundSize = "100%"
     divStyle.style.backgroundImage = spriteBank[6];
@@ -139,10 +142,10 @@ const storyUpdater = (takePos) => {
     // hooker //
 
     if (nextPos == 74 && storyState < 2) {
-        hookerDeath();
+        girlDeath();
     }
     if (nextPos == 94 && storyState < 2) {
-        txtMsgs.innerHTML = "WHO'S THIS FINE-LOOKING BABE?"
+        txtMsgs.innerHTML = "WHO'S THIS MYSTERIOUS BRUNETTE?"
     }
     if (nextPos == 94 && storyState == 2) {
         txtMsgs.innerHTML = "DELIVER THE LOVEBIRD'S MESSAGE? Y/N"
@@ -212,7 +215,7 @@ const dialogue = (prompt) => {
             txtMsgs.innerHTML = "ORC: SHE WANTS ME! BUT I CAN'T LEAVE BEFORE THE PRISONERS ARE BACK IN THEIR CELL"
             break;
         case 3:
-            txtMsgs.innerHTML = "HOOKER: ALWAYS ON WARDEN DUTY THAT ORC! OK, GIVE THOSE CRIMINALS MY PRECIOUS PROSTITUTE GOLD"
+            txtMsgs.innerHTML = "GIRL: ALWAYS ON WARDEN DUTY THAT ORC! OK, GIVE THOSE CRIMINALS MY GOLD"
             break;
         case 4:
             txtMsgs.innerHTML = "ALL GOLD CHESTS HAVE BEEN COLLECTED!"
@@ -222,7 +225,7 @@ const dialogue = (prompt) => {
             mobRealign()
             break;
         case 6:
-            txtMsgs.innerHTML = "HOOKER: CAN'T YOU SEE WE'RE SHAGGING? PISS OFF!"
+            txtMsgs.innerHTML = "GIRL: WE'RE FINALLY REUNITED! THANK YOU, SKELETON!"
             break;
     }
 }
@@ -250,6 +253,6 @@ export {
     controlPanel,
     playerMove,
     portalJumper,
-    hookerDeath,
+    girlDeath,
     prisonLockdown,
 }
