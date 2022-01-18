@@ -18,7 +18,7 @@ const updateSprite = (currentIndex, newIndex, URL) => {
     }       
     if (nextPos == 76 || nextPos == 368) {
         portalJumper(nextPos)} 
-    storyUpdater();
+    storyUpdater(nextPos);
 }
 
 const controlPanel = () => {
@@ -91,14 +91,14 @@ const hookerDeath = () => {
     location.reload();
 }
 
-const prisonLockdown = (presentIndex, futureIndex) => {
+const prisonLockdown = (toBePos) => {
     for (let i = 274; i <= 276; i++) {
         tileMap[i] = 9;
         var divStyle = document.getElementById(i)
         divStyle.style.backgroundImage = spriteBank[5];
     }
     txtMsgs.innerHTML = "OH NO! WHY'S THE ROOM LOCKED?";
-    if ((presentIndex + futureIndex) == 274 || (presentIndex + futureIndex)  == 275 || (presentIndex + futureIndex)  == 276) {
+    if (toBePos == 274 || toBePos == 275 || toBePos  == 276) {
         alert("GAME OVER! Your ignoble actions got you imprisoned.")
         location.reload();
     }
@@ -119,7 +119,7 @@ const gameEnder = () => {
 
 // STORY PROMPTS AND TEXTS //
 
-const storyUpdater = () => {
+const storyUpdater = (takePos) => {
 
                             // love letter //
 
@@ -147,7 +147,7 @@ txtMsgs.innerHTML = "IS THIS GOLD WAITING FOR YOU?!"
 
 if (tileMap[194] == 0 || tileMap[195] == 0 || tileMap[196] == 0) {
 if (storyState >= 0 && storyState < 3) {
-prisonLockdown(currentIndex, newIndex);
+prisonLockdown(takePos);
 } 
 if (storyState == 3 && tileMap[194] == 0 && tileMap[195] == 0 && tileMap[196] == 0) {
 txtMsgs.innerHTML = "ALL GOLD CHESTS HAVE BEEN COLLECTED!"
