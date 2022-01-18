@@ -1,0 +1,59 @@
+body {
+    background-color: black;
+    caret-color: transparent;
+    font-size: 20px;
+  }
+
+.container {
+    font-family: 'Press Start 2P', cursive;
+    width: 640px;
+    color: white;
+    margin: auto;
+    justify-content: center;
+    width: 50%;
+    padding: 10;
+    resize: none;
+    } 
+
+#grid {
+    display: grid;
+    width: 640px;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    /* border: 1px solid black; */
+    }
+
+#txtMsgs {
+    line-height: 1.6;
+    font-size: 15px;
+    margin-top: 10px;
+    }
+
+.tile {
+    position: relative;
+    height: 32px;
+    width: 32x;
+    background-color: #eee;
+    background-color: rgb(53, 52, 52);
+    /* background-image: url(dirt.jpg); */
+    background-size: 100%;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.25);
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    }
+
+    /* .portal {
+        position: relative;
+        height: 32px;
+        width: 32x;
+        background-image: url("portal.gif");
+        text-align: center;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.25);
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        } */
